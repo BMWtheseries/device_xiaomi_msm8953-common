@@ -1,0 +1,7 @@
+allow vendor_init bluetooth_prop:file { read };
+allow vendor_init default_prop:file { read };
+allow vendor_init default_prop:property_service { set };
+allow vendor_init proc_sched:file { write };
+allow vendor_init spectrum_prop:file { read };
+allow vendor_init tombstone_data_file:dir { getattr };
+allow vendor_init vendor_seemp_data_file:dir { create };
