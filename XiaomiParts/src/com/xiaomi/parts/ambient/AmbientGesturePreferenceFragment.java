@@ -18,6 +18,7 @@
 package com.xiaomi.parts.ambient;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -53,9 +54,10 @@ public class AmbientGesturePreferenceFragment extends PreferenceFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ActionBar actionbar = getActivity().getActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setTitle(R.string.ambient_display_enable_title);
+        final ActionBar actionBar = getActivity().getActionBar();
+                if (actionBar != null) {
+                    actionBar.setDisplayHomeAsUpEnabled(true);
+                }
     }
 
     @Override

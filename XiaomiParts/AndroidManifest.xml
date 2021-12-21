@@ -14,14 +14,14 @@
     <application
         android:label="@string/xiaomi_parts_title"
         android:supportsRtl="true"
-        android:theme="@style/CustomOptionsTheme">
+        android:theme="@style/Theme.SubSettingsBase">
 
         <receiver
             android:name=".BootReceiver"
             android:defaultToDeviceProtectedStorage="true"
             android:directBootAware="true"
             android:enabled="true"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -30,7 +30,7 @@
         </receiver>
         <receiver android:name=".OnBoot"
             android:enabled="true"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
 
@@ -40,7 +40,7 @@
         </receiver>
         <activity
             android:name=".DeviceSettingsActivity"
-	    android:exported="false"
+	    android:exported="true"
             android:label="@string/xiaomi_parts_title"
 	    android:launchMode="singleTask">
             <meta-data
@@ -69,8 +69,8 @@
         <activity
             android:name=".kcal.KCalSettingsActivity"
             android:excludeFromRecents="true"
-            android:exported="false"
-            android:theme="@style/CustomOptionsTheme"
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase"
             android:label="@string/advanced_settings_kcal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,6 +83,7 @@
             android:enabled="true"
             android:icon="@drawable/ic_parts_device"
             android:label="@string/xiaomi_parts_title"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
@@ -92,11 +93,13 @@
         <service
             android:name=".DiracService"
             android:enabled="true"
+            android:exported="true"
             android:stopWithTask="false" />
             <service
             android:name=".DiracTileService"
             android:icon="@drawable/ic_qs_dirac"
             android:label="@string/dirac_qs_tile_title"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
@@ -105,13 +108,14 @@
 
         <service
             android:name=".fps.FPSInfoService"
-            android:exported="false">
+            android:exported="true">
         </service>
 
         <service
             android:name=".fps.FPSTileService"
             android:icon="@drawable/ic_fps_tile"
             android:label="@string/fps_info_title"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -119,13 +123,15 @@
             </intent-filter>
         </service>
         <service android:name="com.xiaomi.parts.ambient.SensorsDozeService"
+                 android:exported="true"
                  android:permission="SensorsDozeService">
         </service>
 
         <activity
             android:name="com.xiaomi.parts.ambient.AmbientGesturePreferenceActivity"
             android:icon="@drawable/ic_doze"
-            android:theme="@style/CustomOptionsTheme"
+            android:theme="@style/Theme.SubSettingsBase"
+            android:exported="true"
             android:label="@string/ambient_display_gestures_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
@@ -135,7 +141,8 @@
         <service
             android:name=".SpectrumTileService" 
             android:icon="@drawable/ic_spectrum" 
-            android:label="@string/spectrum_profile_title" 
+            android:label="@string/spectrum_profile_title"
+            android:exported="true" 
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"> 
             <intent-filter>
                 <action 
@@ -157,6 +164,7 @@
             android:name=".GpuboostTileService"
             android:icon="@drawable/ic_gpuboost_qs"
             android:label="@string/gpuboost_title"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>

@@ -8,6 +8,8 @@ import androidx.preference.Preference;
 import com.xiaomi.parts.R;
 import com.xiaomi.parts.preferences.SecureSettingSeekBarPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
+import android.app.ActionBar;
+import android.app.Activity;
 
 public class KCalSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener, Utils {
@@ -29,7 +31,10 @@ public class KCalSettings extends PreferenceFragment implements
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        final ActionBar actionBar = getActivity().getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
