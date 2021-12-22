@@ -1,2 +1,0 @@
-allow thermal-engine property_socket:sock_file { write };
-allow thermal-engine sysfs:dir { read };
